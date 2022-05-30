@@ -1,0 +1,30 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "Dbskly@328",
+    "database": "diary_platform",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "Dbskly@328",
+    "database": "diary_platform",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "uat": {
+    "username": "postgres",
+    "password": "Dbskly@328",
+    "database": "diary_platform",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "Dbskly@328",
+    "database": "diary_platform",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
