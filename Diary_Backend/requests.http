@@ -1,0 +1,106 @@
+###Logging in user
+
+POST http://localhost:3004/users/login
+Content-Type: application/json
+
+{
+    "email":"sasanka.g@westagilelabs.com",
+    "password":"sasanka123"
+}
+
+###Users
+//Posting users into users table when user signs-up
+
+POST http://localhost:3004/users/signup
+Content-Type: application/json
+
+{
+    "name":"Sasanka",
+    "age":21,
+    "mobile":"9494344363",
+    "email":"sasanka.g@westagilelabs.com",
+    "password":"sasanka123"
+}
+//Get all users
+
+GET http://localhost:3004/users HTTP/1.1
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+//Get user by email
+
+GET http://localhost:3004/users/vineetha.g@westagilelabs.com HTTP/1.1
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+
+
+
+######Diary
+//Getting all diary notes
+GET http://localhost:3004/diaries HTTP/1.1
+
+//Gettin all diary notes of a particular person
+GET http://localhost:3004/diaries/saranya.k@westagilelabs.com HTTP/1.1
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+//Creating  diary notes
+POST http://localhost:3004/diaries/sasanka.g@westagilelabs.com
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXNhbmthLmdAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhc2Fua2ExMjMifSwiaWF0IjoxNjU0MDg2MjIxfQ.qOAIz8c8_nxLts75pPiF81hToIDFmZw5s7O6bQGQTmE
+
+{
+    "description":"Spent lovely time with friends.",
+    "date":"2022-06-01",
+    "email":"sasanka.g@westagilelabs.com"
+}
+
+//Edit the existing note
+PUT http://localhost:3004/diaries/sasanka.g@westagilelabs.com
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXNhbmthLmdAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhc2Fua2ExMjMifSwiaWF0IjoxNjU0MDg2MjIxfQ.qOAIz8c8_nxLts75pPiF81hToIDFmZw5s7O6bQGQTmE
+
+{
+    "description":"Spent lovely time with family."
+}
+
+//Delete note by email
+DELETE http://localhost:3004/diaries/saranya.k@westagilelabs.com HTTP/1.1
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+//Getting diary note given email and date
+GET http://localhost:3004/diaries/date/2022-06-01 HTTP/1.1
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXNhbmthLmdAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhc2Fua2ExMjMifSwiaWF0IjoxNjU0MDg2MjIxfQ.qOAIz8c8_nxLts75pPiF81hToIDFmZw5s7O6bQGQTmE
+
+######Credentials
+
+//Getting credentials of all users
+GET http://localhost:3004/credentials HTTP/1.1
+
+//Getting credentials of particular user by email
+GET http://localhost:3004/credentials/vineetha.g@westagilelabs.com HTTP/1.1
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+//Creating Credentials
+POST http://localhost:3004/credentials/vineetha.g@westagilelabs.com HTTP/1.1
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+{
+    "platform":"Hotstart",
+    "emailId":"vineetha.g@westagilelabs.com",
+    "password":"vineetha_hotstar"
+}
+
+//Editing existing credentials
+PUT http://localhost:3004/credentials?email=vineetha.g@westagilelabs.com&platform=Hotstart HTTP/1.1
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+{
+    "platform":"Hotstar",
+    "email":"vineetha.g@westagilelabs.com",
+    "password":"vineetha_hotstar"
+}
+//Deleting credentials
+
+DELETE http://localhost:3004/credentials?email=vineetha.g@westagilelabs.com&platform=Hotstar
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
