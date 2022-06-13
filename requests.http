@@ -1,0 +1,106 @@
+###Logging in user
+
+POST http://localhost:3005/users/loginuser
+Content-Type: application/json
+
+{
+    "email":"sasanka.g@westagilelabs.com",
+    "password":"Sasanka_123"
+}
+
+###Users
+//Posting users into users table when user signs-up
+
+POST http://localhost:3005/users/signup
+Content-Type: application/json
+
+{
+    "name":"Sravani",
+    "age":20,
+    "mobile":"9497890912",
+    "email":"sravani.a@westagilelabs.com",
+    "password":"Sravani_123"
+}
+//Get all users
+
+GET http://localhost:3005/users HTTP/1.1
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+//Get user by email
+
+GET http://localhost:3005/users/vineetha.g@westagilelabs.com HTTP/1.1
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+
+
+
+######Diary
+//Getting all diary notes
+GET http://localhost:3005/diaries HTTP/1.1
+
+//Gettin all diary notes of a particular person
+GET http://localhost:3005/diaries/get/sasanka.g@westagilelabs.com HTTP/1.1
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+//Creating  diary notes
+POST http://localhost:3005/diaries/add?email=vineetha.g@westagilelabs.com&date=2022-06-08
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXNhbmthLmdAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6IlNhc2Fua2FfMTIzIn0sImlhdCI6MTY1NDY2MzU4MX0.iqIfLF9Lyx-bxc_kQdlzTuLOuzksZiRLKpL3TmU_40M
+
+{
+    "email":"vineetha.g@westagilelabs.com",
+    "description":"Did crazy things with crazy friends",
+    "date":"2022-06-08"
+}
+
+//Edit the existing note
+PUT http://localhost:3005/diaries/edit?email=sasanka.g@westagilelabs.com&date=2022-06-09
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXNhbmthLmdAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhc2Fua2ExMjMifSwiaWF0IjoxNjU0MDg2MjIxfQ.qOAIz8c8_nxLts75pPiF81hToIDFmZw5s7O6bQGQTmE
+
+{
+    "description":"Spent lovely time in party."
+}
+
+//Delete note by email
+DELETE http://localhost:3005/diaries/delete?email=sasanka.g@westagilelabs.com&date=2022-06-04 HTTP/1.1
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+//Getting diary note given email and date
+GET http://localhost:3005/diaries/getNote?email=sasanka.g@westagilelabs.com&date=2022-06-09 HTTP/1.1
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXNhbmthLmdAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhc2Fua2ExMjMifSwiaWF0IjoxNjU0MDg2MjIxfQ.qOAIz8c8_nxLts75pPiF81hToIDFmZw5s7O6bQGQTmE
+
+######Credentials
+
+//Getting credentials of all users
+GET http://localhost:3005/credentials HTTP/1.1
+
+//Getting credentials of particular user by email
+GET http://localhost:3005/credentials/vineetha.g@westagilelabs.com HTTP/1.1
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+//Creating Credentials
+POST http://localhost:3005/credentials/add/vineetha.g@westagilelabs.com HTTP/1.1
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+{
+    "platform":"DisneyHotstar",
+    "emailId":"vineetha.g@westagilelabs.com",
+    "password":"vineetha_DisneyHot123"
+}
+
+//Editing existing credentials
+PUT http://localhost:3005/credentials/edit?email=sasanka.g@westagilelabs.com&platform=Hotstar HTTP/1.1
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
+
+{
+    "platform":"Hotstar",
+    "email":"sasanka.g@westagilelabs.com",
+    "password":"sasanka_Hotstar134"
+}
+//Deleting credentials
+
+DELETE http://localhost:3005/credentials?email=vineetha.g@westagilelabs.com&platform=Amazon
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQ3JlZGVudGlhbHMiOnsiZW1haWwiOiJzYXJhbnlhLmtAd2VzdGFnaWxlbGFicy5jb20iLCJwYXNzd29yZCI6InNhcmFueWExMjMifSwiaWF0IjoxNjU0MDc1ODQ4fQ.5x-zVEOTTYw5hx9fHbZxlYtInvOaVbH-ZbxiC7nOhNE
